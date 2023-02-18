@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Simple Intent</string>
+    <string name="to_detail_with_data">To detail with data</string>
+    <string name="to_detail_with_object">To Detail with object</string>
+</resources>
