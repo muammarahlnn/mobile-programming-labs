@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 /**
  * @author Muammar Ahlan Abimanyu (muammarahlnn)
@@ -28,6 +29,12 @@ public class MainActivity extends AppCompatActivity {
 
         // set adapter to rv
         StudentAdapter adapter = new StudentAdapter(DataSource.students);
+        adapter.setClickListener(new StudentAdapter.ClickListener() {
+            @Override
+            public void onItemClicked(Student student) {
+                Toast.makeText(MainActivity.this, student.getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
         rvStudents.setAdapter(adapter);
     }
 }

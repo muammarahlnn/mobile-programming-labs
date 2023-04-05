@@ -18,8 +18,14 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
 
     private final ArrayList<Student> students;
 
+    private ClickListener clickListener;
+
     public StudentAdapter(ArrayList<Student> students) {
         this.students = students;
+    }
+
+    public void setClickListener(ClickListener clickListener) {
+        this.clickListener = clickListener;
     }
 
     @NonNull
@@ -41,7 +47,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
         return students.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView tvName;
         private final TextView tvNim;
@@ -54,6 +60,14 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
         public void setData(Student student) {
             tvName.setText(student.getName());
             tvNim.setText(student.getNim());
+            itemView.setOnClickListener(view -> {
+                clickListener.onItemClicked(student);
+            });
         }
+    }
+
+    interface ClickListener {
+
+        void onItemClicked(Student student);
     }
 }
