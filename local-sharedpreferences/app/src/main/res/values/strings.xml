@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Local SharedPreferences</string>
+    <string name="name">Name</string>
+    <string name="nim">NIM</string>
+    <string name="save">Save</string>
+    <string name="change">Change</string>
+</resources>
